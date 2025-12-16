@@ -3,6 +3,11 @@ by Tiago Romão e Miguel Faustino
 
 # 1º SETUP DO NEXT.JS
 
+1. Download do zip do repositório e já terem aberto o folder no Cursor 
+
+2. Abrir o terminal e garantir que estão na pasta tasks
+
+3. De seguida colar o seguinte comando para o terminal: "npm install". Vai criar o esssencial para o projeto de NEXT.JS
 
 # 2º SETUP DO SUPABASE
 
@@ -22,6 +27,13 @@ Criar conta no supabase: https://supabase.com/dashboard/sign-up
 
 5. No Supabase já com o projeto aberto, carregar em "Project Overview". Andar para baixo até a secção "Project API" e vão encontrar 2 tipos de keys:
  - Project URL
- - API Key
+ - API Key anon key
 
+6. Ainda têm de ir buscar a Service Role Key:
+ - Project Settings -> API Keys -> Legacy anon, service_role API keys -> service_role secret
+
+7. Ir ao cursor e criar um novo file em task com o nome ".env.local". Nesse file vão colocar as vossas keys do Supabase da seguinte forma:
+NEXT_PUBLIC_SUPABASE_URL=(Project URL)
+NEXT_PUBLIC_SUPABASE_ANON_KEY=(API Key anon key)
+SUPABASE_SERVICE_ROLE_KEY=(service_role secret)
 
