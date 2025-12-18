@@ -1,0 +1,74 @@
+# Regras do Cursor para o Projeto de Formação
+
+## Stack Tecnológica
+- **Framework**: Next.js 16 com App Router
+- **Linguagem**: TypeScript (strict mode)
+- **UI**: React 19 com componentes funcionais e hooks
+- **Estilização**: Tailwind CSS 4
+- **Backend**: Supabase (autenticação, base de dados, storage)
+- **Linting**: ESLint com configuração Next.js
+
+## Convenções de Código
+
+### Estrutura de Arquivos
+- Usar App Router do Next.js (pasta `app/`)
+- Componentes React em arquivos `.tsx`
+- Utilitários e helpers em arquivos `.ts`
+- Usar o alias `@/*` para imports (configurado no tsconfig.json)
+
+### Componentes React
+- Sempre usar componentes funcionais (não classes)
+- Usar hooks do React (useState, useEffect, etc.)
+- Tipar props com TypeScript interfaces ou types
+- Nomes de componentes em PascalCase
+- Um componente por arquivo
+
+### TypeScript
+- Sempre tipar variáveis, funções e props
+- Usar `interface` para objetos e `type` para unions/intersections
+- Evitar `any` - usar `unknown` quando necessário
+- Seguir strict mode do TypeScript
+
+### Supabase
+- Variáveis de ambiente:
+  - `NEXT_PUBLIC_SUPABASE_URL` - URL do projeto
+  - `NEXT_PUBLIC_SUPABASE_ANON_KEY` - Chave pública anônima
+  - `SUPABASE_SERVICE_ROLE_KEY` - Chave de serviço (apenas server-side)
+- Criar funções separadas para operações de base de dados (Get, Post, etc.)
+- Tratar erros adequadamente nas chamadas ao Supabase
+
+### Estilização
+- Usar Tailwind CSS para estilização
+- Classes utilitárias do Tailwind
+- Evitar CSS inline quando possível
+- Manter consistência visual
+
+### Nomenclatura
+- Componentes: `PascalCase` (ex: `UserProfile.tsx`)
+- Funções: `camelCase` (ex: `getUserData`)
+- Constantes: `UPPER_SNAKE_CASE` (ex: `API_BASE_URL`)
+- Arquivos: `kebab-case` ou `PascalCase` para componentes
+
+### Boas Práticas
+- Sempre validar dados antes de enviar para o Supabase
+- Usar async/await para operações assíncronas
+- Tratar erros com try/catch
+- Comentários em português quando necessário
+- Código limpo e legível
+- Seguir princípios SOLID quando aplicável
+
+### Estrutura de Pastas Recomendada
+```
+app/
+  ├── (routes)/
+  ├── components/
+  ├── lib/
+  │   └── supabase/
+  └── types/
+```
+
+## Instruções Especiais
+- Quando criar componentes, sempre verificar se já existem componentes similares
+- Ao trabalhar com Supabase, verificar se as tabelas e políticas RLS estão configuradas
+- Sempre testar localmente com `npm run dev` antes de fazer commit
+- Manter o código alinhado com as convenções do Next.js 16
