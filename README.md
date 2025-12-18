@@ -2,12 +2,14 @@
 by Tiago Romão e Miguel Faustino
 
 # 1º SETUP DO NEXT.JS
-
+ii
 1. Download do zip do repositório e já terem aberto o folder no Cursor 
 
 2. Abrir o terminal e garantir que estão na pasta tasks
 
 3. De seguida colar o seguinte comando para o terminal: "npm install". Vai criar o esssencial para o projeto de NEXT.JS
+
+4. Para correr o programa localmente colar o seguinte comando para o terminal: "npm run dev" e abrir no browser o local host. Provavelmente: http://localhost:3000
 
 # 2º SETUP DO SUPABASE
 
