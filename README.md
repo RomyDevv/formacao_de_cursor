@@ -2,7 +2,7 @@
 by Tiago Romão e Miguel Faustino
 
 # 1º SETUP DO NEXT.JS
-ii
+
 1. Download do zip do repositório e já terem aberto o folder no Cursor
 
 2. Abrir o terminal e garantir que estão na pasta tasks
@@ -10,6 +10,8 @@ ii
 3. De seguida colar o seguinte comando para o terminal: "npm install". Vai criar o esssencial para o projeto de NEXT.JS
 
 4. Para correr o programa localmente colar o seguinte comando para o terminal: "npm run dev" e abrir no browser o local host. Provavelmente: http://localhost:3000
+
+--- 
 
 # 2º SETUP DO SUPABASE
 
@@ -27,18 +29,19 @@ Criar conta no supabase: https://supabase.com/dashboard/sign-up
  - Palavra-passe da Base de Dados (IMPORTANTE QUE SAIBAM);
  - Região (selecionem Europa);
 
-5. No Supabase já com o projeto aberto, carregar em "Project Overview". Andar para baixo até a secção "Project API" e vão encontrar 2 tipos de keys:
- - Project URL
- - API Key anon key
-
-6. Ainda têm de ir buscar a Service Role Key:
- - Project Settings -> API Keys -> Legacy anon, service_role API keys -> service_role secret
-
-7. Ir ao cursor e criar um novo file em task com o nome ".env.local". Nesse file vão colocar as vossas keys do Supabase da seguinte forma:
+5. Ir ao cursor e criar um novo file em task com o nome ".env.local". Nesse file vão colocar as vossas keys do Supabase da seguinte forma:
 NEXT_PUBLIC_SUPABASE_URL=(Project URL)
 NEXT_PUBLIC_SUPABASE_ANON_KEY=(API Key anon key)
 SUPABASE_SERVICE_ROLE_KEY=(service_role secret)
 
+6. No Supabase já com o projeto aberto, carregar em "Project Overview". Andar para baixo até a secção "Project API" e vão encontrar 2 tipos de keys:
+ - Project URL
+ - API Key anon key
+
+7. Ainda têm de ir buscar a Service Role Key:
+ - Project Settings -> API Keys -> Legacy anon, service_role API keys -> service_role secret
+
+---
 
 # 3º DESENVOLVIMENTO DA APP
 
@@ -73,12 +76,7 @@ CREATE POLICY "Allow all operations on tasks" ON tasks
   USING (true)
   WITH CHECK (true);
 ```
-
-**Ou usar esta prompt no chat do Supabase:**
-
-> Create a table named "tasks" with the following columns: id (UUID, primary key, auto-generated), title (TEXT, not null), and created_at (TIMESTAMP with time zone, default NOW()). Enable Row Level Security and create a policy that allows all operations for development purposes.
-
-
+--- 
 ## Passo 2: Criar as Funções de Base de Dados
 
 ### Prompt para o Cursor:
@@ -88,7 +86,7 @@ CREATE POLICY "Allow all operations on tasks" ON tasks
 > 2. `addTask(title: string)` - async function that inserts a new task with the provided title into the "tasks" table. Return the created task and handle errors.
 > Use the Supabase client from `./client` and TypeScript types.
 
-
+---
 
 ## Passo 3: Criar a API Route
 
@@ -148,19 +146,7 @@ CREATE POLICY "Allow all operations on tasks" ON tasks
 
 ---
 
-## Passo 7: Adicionar Atualização Automática da Lista
-
-### Prompt para o Cursor:
-
-> Update the `TaskList` component to accept an optional `refreshTrigger` prop or use a callback pattern. Then update `TaskForm` to accept an `onTaskAdded` callback prop that gets called after successfully adding a task. In `app/page.tsx`, implement state management to trigger a refresh of `TaskList` when a new task is added via `TaskForm`. Use React state and useEffect if needed.
-
-**Alternativa mais simples:**
-
-> Update `TaskList` to refetch tasks when a `refreshKey` prop changes. Update `TaskForm` to call an `onSuccess` callback after adding a task. In `app/page.tsx`, use useState to manage a refresh counter that increments when a task is added, passing it as `refreshKey` to `TaskList`.
-
----
-
-## Passo 8: Testar a Aplicação
+## Passo 7: Testar a Aplicação
 
 1. Certificar que o servidor está a correr: `npm run dev`
 2. Abrir http://localhost:3000
